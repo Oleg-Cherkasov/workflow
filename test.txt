@@ -1,0 +1,9 @@
+desc
+1 = readfile in_file.txt
+2 = writefile out_file.txt
+3 = sort
+10 = replace aa tt
+1000 = grep bb
+5 = dump out_file.txt
+csed
+1->5->10->5->1000->2
