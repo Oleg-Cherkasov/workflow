@@ -38,4 +38,4 @@ public:
     Worker *createWorker(std::string args) override;
 };
 
-Worker* makeWorker(WorkerFactory* factory, std::string &args);
+std::shared_ptr<Worker> makeWorker(std::shared_ptr<WorkerFactory> factory, std::string &args);

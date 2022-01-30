@@ -2,12 +2,12 @@
 
 Parser::Parser(std::string const &filename){
     fin.open(filename);
-    WrdFactory = new WorkerReadFactory;
-    WwtFactory = new WorkerWriteFactory;
-    WgpFactory = new WorkerGrepFactory;
-    WstFactory = new WorkerSortFactory;
-    WrcFactory = new WorkerReplaceFactory;
-    WdpFactory = new WorkerDumpFactory;
+    WrdFactory = std::make_shared<WorkerReadFactory>() ;
+    WwtFactory = std::make_shared<WorkerWriteFactory>();
+    WgpFactory = std::make_shared<WorkerGrepFactory>();
+    WstFactory = std::make_shared<WorkerSortFactory>();
+    WrcFactory = std::make_shared<WorkerReplaceFactory>();
+    WdpFactory = std::make_shared<WorkerDumpFactory>();
 }
 std::vector<std::string> Parser::parseBlock(std::string const &currentString){
     int i = 0;
@@ -116,6 +116,6 @@ void Parser::parse(){
 std::vector<int> Parser::getSequence(){
     return commandSequence;
 }
-std::map<int, Worker*> Parser::getBlocks(){
+std::map<int, std::shared_ptr<Worker>> Parser::getBlocks(){
     return blocks;
 }

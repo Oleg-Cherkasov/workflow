@@ -23,6 +23,6 @@ Worker *WorkerDumpFactory::createWorker(std::string args){
     return new WorkerDump(args);
 }
 
-Worker* makeWorker(WorkerFactory* factory, std::string &args){
-    return factory->createWorker(args);
+std::shared_ptr<Worker> makeWorker(std::shared_ptr<WorkerFactory> factory, std::string &args){
+    return std::shared_ptr<Worker>(factory->createWorker(args));
 }

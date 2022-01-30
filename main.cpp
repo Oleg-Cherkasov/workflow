@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "workers.h"
-#include "factories.h"
 #include "parser.h"
 
 
@@ -9,7 +8,15 @@ int main() {
     std::string filename = "test.txt";
     std::vector<std::string> text;
     Parser p(filename);
-    p.parse();
+    try {
+        p.parse();
+    }catch (const FileBeginningException& ex){
+        std:: cout << ex.what();
+        exit(1);
+    }catch (const SequenceSyntaxError& ex){
+        std:: cout << ex.what();
+        exit(1);
+    }
     auto b = p.getBlocks();
     auto s = p.getSequence();
     for (auto x : s){
