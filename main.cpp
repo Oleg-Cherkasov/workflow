@@ -12,10 +12,10 @@ int main() {
         p.parse();
     }catch (const FileBeginningException& ex){
         std:: cout << ex.what();
-        exit(1);
+        return 1;
     }catch (const SequenceSyntaxError& ex){
         std:: cout << ex.what();
-        exit(1);
+        return 1;
     }
     auto b = p.getBlocks();
     auto s = p.getSequence();
