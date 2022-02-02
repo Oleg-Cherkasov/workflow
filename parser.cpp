@@ -55,9 +55,7 @@ std::vector<int> Parser::parseCommandSequence(std::string const &currentString){
             blockNumber += currentString[i] - '0';
             i++;
         }
-        if (blocks[blockNumber]->argsIn != lastOut) throw DiscrepArgsException();
         resultSequence.push_back(blockNumber);
-        lastOut = blocks[blockNumber]->argsOut;
         if (i == currentString.size()) return resultSequence;
         if (currentString[i] != '-') throw SequenceSyntaxError(currentString, i);
         i++;

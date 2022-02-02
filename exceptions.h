@@ -44,11 +44,6 @@ public:
     const char * what() const noexcept override;
 };
 
-class DiscrepArgsException : public std::exception{
-public:
-    const char * what() const noexcept override;
-};
-
 class BadIndexException : public std::exception{
 private:
     std::string msg;
@@ -56,3 +51,12 @@ public:
     BadIndexException(const std::string &str1, const std::string &str2);
     const char * what() const noexcept override;
 };
+
+class IOTextException : public std::exception{
+private:
+    std::string msg;
+public:
+    IOTextException(const std::string& str);
+    const char * what() const noexcept override;
+};
+

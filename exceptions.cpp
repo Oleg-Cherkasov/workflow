@@ -44,10 +44,6 @@ const char *TooFewArgsException::what() const noexcept {
     return msg.c_str();
 }
 
-const char *DiscrepArgsException::what() const noexcept {
-    return "ERROR : Discrepancy in the number of arguments!\n";
-}
-
 BadIndexException::BadIndexException(const std::string &str1, const std::string &str2) {
     msg = "ERROR : Can not index command \"" + str2 + "\". ";
     msg += "The number \"" + str1 + "\" is used somewhere before!\n";
@@ -56,3 +52,12 @@ BadIndexException::BadIndexException(const std::string &str1, const std::string 
 const char *BadIndexException::what() const noexcept {
     return msg.c_str();
 }
+
+IOTextException::IOTextException(const std::string &str): msg(str) {
+
+}
+
+const char *IOTextException::what() const noexcept {
+    return msg.c_str();
+}
+

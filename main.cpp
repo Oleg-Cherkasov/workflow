@@ -6,7 +6,7 @@
 
 int main() {
     std::string filename = "test.txt";
-    std::vector<std::string> text;
+    std::optional<std::vector<std::string>> text = {};
     Parser p(filename);
     try {
         p.parse();

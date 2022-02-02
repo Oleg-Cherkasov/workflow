@@ -31,7 +31,7 @@ private:
     std::shared_ptr<WorkerFactory>    WdpFactory;
 
     std::vector<std::string> parseBlock(std::string const &currentString);
-    std::vector<int> parseCommandSequence(std::string const &currentString);
+    static std::vector<int> parseCommandSequence(std::string const &currentString);
 
 public:
 
